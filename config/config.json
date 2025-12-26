@@ -1,0 +1,89 @@
+﻿{
+  "deviceID": "WATER_TANK_001",
+  "tiempoTensiones": 1000,
+  "tiempoCorrientes": 1000,
+  "tiempoNivel": 2000,
+  "tiempoPresion": 2000,
+  "tiempoTempHum": 5000,
+  "tiempoDigitales": 500,
+  "tiempoComprobacionRed": 10000,
+  "tiempoReconexEthernet": 15000,
+  "timeoutRespuesta": 2000,
+
+  "tension": [
+    {
+      "nombre": "Tension_L1",
+      "direccionModbus": 1,
+      "registro": 30001,
+      "scale": 0.1,
+      "offset": 0.0,
+      "min": 200,
+      "max": 250,
+      "activo": true,
+      "configAlarmas": {
+        "enviarSMS": true,
+        "enviarTelegram": true,
+        "enviarServidor": true,
+        "tiempoEntreAlertas": 60000
+      },
+      "mensajes": {
+        "bajo": "ALARM: Tensión baja",
+        "alto": "ALARM: Tensión alta"
+      }
+    }
+  ],
+
+  "sht11": {
+    "activo": true,
+    "tempMin": -10,
+    "tempMax": 50,
+    "humMin": 0,
+    "humMax": 100
+  },
+
+  "wifi": {
+    "ssid": "MyWiFi",
+    "pass": "mypassword",
+    "dhcp": true,
+    "retryInterval": 10000,
+    "maxSMS": 5
+  },
+
+  "wifiAP": {
+    "ssid": "SCADA_AP",
+    "pass": "12345678",
+    "dhcp": true
+  },
+
+  "ethernet": {
+    "autoConnect": true,
+    "mac": "DE:AD:BE:EF:00:01",
+    "ip": "192.168.1.100",
+    "mask": "255.255.255.0",
+    "gateway": "192.168.1.1",
+    "dns": "8.8.8.8"
+  },
+
+  "sms": {
+    "baudrate": 115200,
+    "txPin": 39,
+    "rxPin": 40,
+    "maxSMS": 5,
+    "retryInterval": 30000,
+    "numeros": [
+      "+34123456789",
+      "+34111222333",
+      "+34123456780",
+      "+34111112222",
+      "+34123456781"
+    ],
+    "activo": [ true, false, false, false, false ]
+  },
+
+  "telegram": {
+    "botToken": "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11",
+    "chatID": "123456789",
+    "rateLimitMs": 1500,
+    "maxMensajesPorCiclo": 5
+  }
+}
